@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReadBar Project</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/js/all.min.js"></script>
+</head>
+<body>
+    
+    <div id="app">
+
+        <div id="main">
+            <img src="ReadBar/img/logo.svg" alt="">
+
+            <div class="header">
+                <ul>
+                    <li>Home</li>
+                    <li>About</li>
+                    <li>Contact</li>
+                    <li>Books</li>
+                    <li @mousedown='isOpen'>Janr <span class="fas fa-caret-down"></span></li>
+
+                    
+                    <!-- Header Dropdown -->
+                <ul v-if='active' class="dr">
+                    <li class="dropdown-menu">Buy Online</li>
+                    <li class="dropdown-menu">Sale 50%</li>
+                    <li class="dropdown-menu">Free Books</li>
+                </ul>
+
+                    <li></li>
+                    <li>MyBooks</li>
+                    <h1 class="a">A</h1>
+                    <h1 class="plus">+</h1>
+                    <h1><span class="fas fa-search"></span></h1>
+                </ul>
+            </div>
+
+        </div>
+
+
+    <div class="carousel">
+
+        <div class="info-carousel">
+            <h2>The best online books</h2>
+            <p>Buy our books online and become one of the smartest people. <br> Reading books is usefull for yourself</p>
+            <a href="#"><button>Show Books</button></a>
+        </div>
+        
+        <img v-if='count === 1' class="car1" src="ReadBar/img/carousel2.png">
+        <img v-if='count === 2' class="car2" src="ReadBar/img/carousel3.png">
+        <img v-if='count === 3' class="car3" src="ReadBar/img/carousel1.png">
+        <button @click='next'><i class="fas fa-angle-right"></i></button>
+        <button @click='prev'><i class="fas fa-angle-left"></i></button>
+    </div>
+
+
+    <div class="upFooter">
+        <h2>Janr</h2>
+
+        <div class="box">
+            <div class="paper"></div>
+            <div class="paper"></div>
+            <div class="paper"></div>
+            <div class="paper"></div>
+            <div class="paper"></div>
+            <div class="paper"></div>
+        </div>
+
+    </div>
+
+    <!-- footer page -->
+
+
+    <div class="footer-header">
+        <div class="footer-hold">
+
+            <div class="items-hold">
+            <div class="footer-items">
+                <h5>THE(BOOKS) MOVEMENT</h5>
+                <a href="#"><p>(TINDER) BLOG</p></a>
+                <a href="#"><p>Press</p></a>
+                <a href="#"><p>FAQs & Contact</p></a>
+            </div>
+
+            <div class="footer-items">
+                <h5>GET INVOLVED</h5>
+                <a href="#"><p>Donate</p></a>
+                <a href="#"><p>Careers</p></a>
+                <a href="#"><p>The ONE Campaign</p></a>
+            </div>
+
+            <div class="footer-items">
+                <h5>STAY CONNECTED</h5>
+                <a href="#"><span class="fab fa-facebook-f"></span></a>
+                <a href="#"><span class="fab fa-twitter"></span></a>
+                <a href="#"><span class="fab fa-instagram"></span></a>
+            </div>
+
+            <div class="footer-items">
+                <h5>LET'S KEEP IN TOUCH</h5>
+                <input type="text" placeholder="Enter your email address...">
+                <input type="button" value="JOIN">
+                <br>    
+
+                <div class="confirm">
+                    <input id="checkbox" type="checkbox">
+                    <p>Yes, I'd like to hear about how can I help fight <br> extreme poverty with the READBAR Campaign.</p>
+                </div>
+
+            </div>
+        </div>
+        
+        </div>
+    </div>
+
+    <div class="last-footer">
+        <div class="campaign">
+            <a href="#"><img src="ReadBar/img/tinder.png"></a>
+            <ul>
+                <li><a href="#">PRIVACY POLICY</a></li>
+                <li><a href="#">TERMS OF SERVICE</a></li>
+            </ul>
+        </div>
+    </div>
+    
+</div>
+
+
+
+
+<script src="vue.js"></script>
+<script>
+
+    new Vue ({
+        el: '#app',
+        data: {
+            active: false,
+            count: 1
+        },
+
+        methods: {
+            isOpen () {
+                this.active = !this.active;
+            },
+
+            // carousel
+
+            next () {
+                this.count = this.count + 1;
+                if( this.count === 4 ) {
+                    this.count = 1;
+                }
+            },
+
+            prev () {
+                this.count = this.count - 1;
+                if ( this.count === 0) {
+                    this.count = 3;
+                }
+            }
+            
+        }
+    });
+    
+
+</script>
+</body>
+
+</html>
